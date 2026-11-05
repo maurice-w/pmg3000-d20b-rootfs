@@ -1,0 +1,289 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>PON Banner</title>
+<link rel="stylesheet" href="css/stylemain.css" type="text/css">
+<link rel="stylesheet" href="css/colors.css" type="text/css">
+
+<style type="text/css">
+td {
+	FONT-SIZE: 9pt; COLOR: #000000; FONT-FAMILY: verdana,sans-serif,arial
+}
+
+a:link {
+	COLOR: #FFFFFF; TEXT-DECORATION: none
+}
+a:visited {
+	COLOR: #FFFFFF; TEXT-DECORATION: none
+}
+a:active {
+	COLOR: #1f8cfa; TEXT-DECORATION: none
+}
+a:hover {
+	COLOR: #1f8cfa; TEXT-DECORATION: none
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+}
+
+.b1, .b2, .b3, .b4{font-size:1px; overflow:hidden; display:block;}
+.b1 {height:1px; background:#85ACE2; margin:0 5px;}
+.b2 {height:1px; background:#85ACE2; border-right:2px solid #888; border-left:2px solid #888; margin:0 3px;}
+.b3 {height:1px; background:#85ACE2; border-right:1px solid #888; border-left:1px solid #888; margin:0 2px;}
+.b4 {height:2px; background:#85ACE2; border-right:1px solid #888; border-left:1px solid #888; margin:0 1px;}
+.contentb {background: #85ACE2; border-right:1px solid #888; border-left:1px solid #888;}
+.contentb div {margin-left: 5px;}	
+
+</style>
+<script language="javascript" type="text/javascript" src="js/common_util.js"></script>
+<script language="javascript" type="text/javascript">
+var str_save 	= "Save configuration to flash ";
+var str_ok		= "successful.";
+var str_failed 	= "failed.";
+var isZH_CN = false;
+
+function saveConfig() {
+	$("bt_apply").disabled 	= true;
+	var parm = "";
+	parm += "?rand=" + Math.random();
+    var xmlhttp = new XMLHttp();
+    xmlhttp.sendRequest("cgi/set_save" + parm, "", saveConfigResult);	 
+}
+function saveConfigResult(s) {
+	$("bt_apply").disabled 	= false;
+
+	var ret = evalJSON(s);
+	if (ret == 1) {
+		alert(str_save + str_ok);
+	} else {
+		alert(str_save + str_failed);
+	}
+}
+
+window.onload = function()
+{	
+	try
+    {
+        try
+        {
+            isZH_CN = navigator.browserLanguage.toLowerCase() == "zh-cn";
+        }
+        catch(e)
+        {
+            try
+            {
+                isZH_CN = navigator.language.toLowerCase() == "zh-cn";
+            }catch(oc){}
+        }
+
+        $("select_lang").options.length = 0;
+        var lan = "Auto-Detect";
+        if (top.g_cur_lang == 0)
+        {
+            lan = isZH_CN ? "自动选择" : "Auto-Detect";
+        }
+        else
+        {
+            lan = top.g_cur_lang == 1 ? "Auto-Detect" : "自动选择";
+        }
+
+        $("select_lang").options[0] = new Option(lan, 0);
+        for (var i=0; i<top.g_lang_info.type.length; i++)
+        {
+            $("select_lang").options[i+1] = new Option(top.g_lang_info.type[i], i+1);
+        }
+    }
+    catch(e){}
+
+    try 
+    {
+        chg_language(top.g_lang.h_ban);
+        chg_language(top.g_lang.h_save);
+    } catch(e){}
+
+	$("select_lang").selectedIndex = top.g_cur_lang;
+	$("page_body").style.visibility = "visible";
+	try {top.setFrame(55);}catch(e){alert(e);}
+	top.loadMenu(top.g_cur_left_url);
+
+	try {
+		str_save 	= top.g_lang.h_save.js_string.str_save;
+		str_ok 		= top.g_lang.h_save.js_string.str_ok;
+		str_failed 	= top.g_lang.h_save.js_string.str_failed;
+	} catch(E){}
+	
+	var user = LoginUser("user");
+    if (user != "admin") 
+    {
+        $("bt_apply").disabled 	= true;
+    }
+    else
+    {
+        $("bt_apply").disabled 	= false;
+    }
+
+    if (0 == getEthPotsNum("user"))
+    {
+        dispalyObj($("in_td_voip"), false);
+    }
+}
+
+function chg_lang(lang_id)
+{
+    if (lang_id == 0)
+    {
+        $("select_lang").options[0].text = !isZH_CN ? "Auto-Detect" : "自动选择";
+        top.chgLanguage(isZH_CN ? 1 : 0);
+    }
+    else
+    {
+        $("select_lang").options[0].text = lang_id == 1 ? "Auto-Detect" : "自动选择";
+        top.chgLanguage(lang_id-1);
+    }
+
+    try {
+        str_save 	= top.g_lang.h_save.js_string.str_save;
+        str_ok 		= top.g_lang.h_save.js_string.str_ok;
+        str_failed 	= top.g_lang.h_save.js_string.str_failed;
+    } catch(E){}	
+
+    try {
+        chg_language(top.g_lang.h_ban);
+        chg_language(top.g_lang.h_save);
+    } catch(e){}
+
+    if (LoginUser("user") == "admin")
+    {
+        setLanguage();
+    }
+}
+
+function setLanguage()
+{
+    var parm = "";
+    parm += "?rand=" + Math.random();
+    parm += "&language="+ $("select_lang").selectedIndex;
+
+    disableButton(true);
+    var xmlhttp = new XMLHttp();
+    xmlhttp.sendRequest("cgi/set_language" + parm, "", setLanguageResult)
+}
+
+function setLanguageResult(s, web_server_status)
+{
+    disableButton(false);
+}
+
+function disableButton(dis)
+{
+    try
+    {
+        $("select_lang").disabled = dis;
+    }
+    catch(E)
+    {
+    }	
+}
+
+</script>		
+</head>
+
+<body style="visibility:hidden" id="page_body">
+    <table cellSpacing="0" cellPadding="0" border="0" width=100%>
+        <tbody>
+            <tr>
+                <td width="100%" colSpan="4">
+                    <table cellSpacing="0" cellPadding="0" width="100%" border="0">
+                        <tbody>
+                            <tr>
+                                <td valign="bottom">
+                                    <table cellSpacing="0" cellPadding="0" width="100%" border="0">
+                                        <tbody>
+                                            <tr>
+                                                <td width="100%" colSpan="4">
+                                                    <table cellPadding="0" border="0" width="100%" style="border-collapse:collapse">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td colSpan="4" width="100%" height="39%">
+                                                                    <table cellSpacing="0" cellPadding="0" width="100%" border="0">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td align="left" width="100%">
+                                                                                    <b class="b1"></b>
+                                                                                    <b class="b2"></b>
+                                                                                    <b class="b3"></b>
+                                                                                    <b class="b4"></b>
+                                                                                    <div class="contentb">
+                                                                                        <div align="center">                  	
+                                                                                            <table cellSpacing="0" cellPadding="7" border="0" width="100%" height="100%">
+                                                                                                <tbody>	
+                                                                                                    <tr>							
+                                                                                                        <td width="10%">&nbsp;</td>
+
+                                                                                                        <td align="left" width="15%">
+                                                                                                            <a href="menu_system.html" 
+                                                                                                                target="leftFrame"><b id="in_st" >Status</b>
+                                                                                                            </a> 
+                                                                                                            &nbsp;<span style="color:#649ABE;">|</span></td>
+
+                                                                                                        <td align="left" width="15%"><a href="menu_setup.html" 
+                                                                                                                target="leftFrame"><b id="in_se">Setup</b></a> 		
+                                                                                                            &nbsp;<span style="color:#649ABE;">|</span></td>
+                                                                                                        <!--
+                                                                                                        <td align="left" width="15%" id="in_td_voip"><a href="menu_voip.html" 
+                                                                                                                target="leftFrame"><b>VOIP</b></a> 
+                                                                                                            &nbsp;<span style="color:#649ABE;">|</span></td>
+                                                                                                        -->
+                                                                                                        <td align="left" width="15%"><a href="menu_mgt.html" 
+                                                                                                                target="leftFrame"><b id="in_ma">Management</b></a> 
+                                                                                                            &nbsp;<span style="color:#649ABE;">|</span></td>
+                                                                                                            <!--
+
+                                                                                                        <td align="left" width="15%"><a href="menu_users.html" 
+                                                                                                                target="leftFrame"><b id="in_us">User</b></a>					
+                                                                                                            &nbsp;<span style="color:#649ABE;">|</span>&nbsp;</td>
+                                                                                                            -->	
+
+                                                                                                        <td width="15%" align="left"><select name="select_lang" id="select_lang" 
+                                                                                                                onChange="chg_lang(this.selectedIndex);">
+                                                                                                                <option value="0" selected>English</option>
+                                                                                                                <option value="1">简体中文</option>
+                                                                                                            </select> 
+                                                                                                            </td> 
+                                                                                                            <td align="left" width="*%">
+                                                                                                            <input name="bt_apply" type="submit" class="normal_bt_style" 
+                                                                                                            id="bt_apply" value="Save Config" onClick="saveConfig();"></td>
+
+                                                                                                    </tr>									
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <b class="b4"></b>
+                                                                                    <b class="b3"></b>
+                                                                                    <b class="b2"></b>
+                                                                                    <b class="b1"></b>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>								 
+                                                                </td>
+                                                            </tr>							
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>										
+</body>
+</html>
+

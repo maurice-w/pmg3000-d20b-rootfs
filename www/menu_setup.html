@@ -1,0 +1,119 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>MENU_SYSTEM</title>
+<link href="css/menu.css" rel="stylesheet" type="text/css">
+<script language="javascript" type="text/javascript" src="js/common_util.js"></script>
+<script language="javascript" type="text/javascript">
+window.onload = function() {
+	top.g_cur_left_url = window.location.href;
+	chgLanguage();
+	$("page_body").style.visibility = "visible";
+    
+    if (-1 == top.g_cur_left_url.indexOf("?direct=ok"))
+    {
+        top.g_cur_main_url = "sn_config.html";
+    }
+	
+	//addMenuEvent("link_qos", "submenu_qos");
+	//addMenuEvent("link_vlan", "submenu_vlan");
+	//addMenuEvent("link_switch", "submenu_switch");
+	top.mainFrame.location.href = top.g_cur_main_url;
+}
+
+function chgLanguage()
+{
+	try {chg_language(top.g_lang.h_setup_menu);} catch(e){}
+}
+</script>
+</head>
+<body style="visibility:hidden" id="page_body">
+<b class="b1"></b>
+<b class="b2"></b>
+<b class="b3"></b>
+<b class="b4"></b>
+<div class="contentb">
+<div align="center">
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+  <td height="20" align="left"><a href="sn_config.html" target="mainFrame" class="menulink" id="in_sn">SN Config </a></td>
+</tr>
+<!--
+<tr>
+  <td height="20" align="left"><a href="loid_config.html" target="mainFrame" class="menulink" id="in_loid">LOID Config </a></td>
+</tr>    
+<tr>
+  <td height="20" align="left"><a href="tr69cfg.html" target="mainFrame" class="menulink" id="in_tr69">Tr069 Config </a></td>
+</tr>
+<tr>
+  <td height="20" align="left"><a href="ip_setup.html" target="mainFrame" class="menulink" id="in_ip">IP Config </a></td>
+</tr>
+<tr>
+  <td height="20" align="left"><a href="pon_setup.html" target="mainFrame" class="menulink" id="in_pon">PON Config </a></td>
+</tr>
+<tr>
+<td height="20" align="left"><a href="maxlen.html" target="mainFrame" class="menulink" id="in_maxlen">MTU Config </a></td>
+</tr>
+<tr>
+  <td height="20" align="left"><a href="qinq_setup.html" target="mainFrame" class="menulink" id="in_qinq">VLAN_STACKING</a></td>
+</tr>
+-->
+<!--
+<tr>
+  <td height="20" align="left"><a href="acl_setup.html" target="mainFrame" class="menulink" id="in_acl">ACL Config</a></td>
+</tr>
+-->
+<!--
+<tr>
+  <td height="20" align="left"><a href="mac_setup.html" target="mainFrame" class="menulink" id="in_mac">MAC Filter Config</a></td>
+</tr> 
+<tr>
+  <td height="20" align="left"><a href="broadcast.html" target="mainFrame" class="menulink" id="in_broadcast">Storm Restrain</a></td>
+</tr>
+
+<tr>
+  <td height="20" align="left"><a href="port_config.html" target="mainFrame" class="menulink" id="link_switch">Switch Config</a></td>
+</tr>
+
+<tr>
+  <td align="left" id="submenu_switch"><table border="0" cellpadding="0" cellspacing="0">
+  	
+<tr>
+	<td>&nbsp;&nbsp;</td>
+  <td height="20" align="left"><a href="port_config.html" target="mainFrame" class="menulink" id="in_port">Port Config</a></td>
+</tr>
+<tr>
+	<td>&nbsp;&nbsp;</td>
+  <td height="20" align="left"><a href="ppp_setup.html" target="mainFrame" class="menulink" id="in_ppp">PPPOE+</a></td>
+</tr>
+<tr>
+	<td>&nbsp;&nbsp;</td>
+  <td height="20" align="left"><a href="dhcp_setup.html" target="mainFrame" class="menulink" id="in_dhcp">DHCP Relay</a></td>
+</tr>
+
+  </table></td>
+</tr>
+
+<tr>
+  <td height="20" align="left"><a href="qos_alg.html" target="mainFrame" class="menulink" id="link_qos">QoS Config</a></td>
+</tr>
+<tr>
+  <td align="left" id="submenu_qos"><table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+	  <td>&nbsp;&nbsp;</td>
+	  <td height="20" align="left"><a href="qos_alg.html" target="mainFrame" class="menulink" id="in_alg">Algorithm</a></td>
+	</tr>
+  </table></td>
+</tr>
+-->
+
+</table>
+</div>
+</div>
+<b class="b4"></b>
+<b class="b3"></b>
+<b class="b2"></b>
+<b class="b1"></b>
+</body>
+</html>
+

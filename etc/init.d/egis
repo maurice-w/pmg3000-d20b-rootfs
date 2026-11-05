@@ -1,0 +1,20 @@
+#!/bin/sh /etc/rc.common
+
+boot() {
+	cat /proc/cmdline | grep "ubi.mtd=" > /dev/null
+	if [ 0 -eq $? ]; then
+		/sbin/insmod egis egis_part=`cat /tmp/mtdinfo  | grep "SECTION_EGIS" | awk -F : '{print $1}'`
+	else
+		/sbin/insmod egis egis_part=SECTION_EGIS
+	fi
+
+	if [ 0 -ne $? ]; then
+		echo "ERROR: insmod egis.ko failed, please test egis driver" > /dev/null 2>&1
+		/sbin/reboot
+	fi
+
+	if [ ! -e /sys/class/egis ]; then
+		echo "ERROR: egis driver init error, please test egis driver" > /dev/null 2>&1
+		/sbin/reboot
+	fi
+}

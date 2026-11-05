@@ -1,0 +1,4 @@
+config 'sfp_pins' 'gpio'
+	option tx_fault '45'
+	option tx_disable '41'
+	option mod_def '255'

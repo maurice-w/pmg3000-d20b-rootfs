@@ -1,0 +1,185 @@
+<html>
+<head>
+<link rel="stylesheet" href="css/stylemain.css" type="text/css">
+<link rel="stylesheet" href="css/colors.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script language="javascript" type="text/javascript" src="js/user_config.js"></script>
+<script language="javascript" type="text/javascript" src="js/common_util.js"></script>
+<script language="javascript" type="text/javascript" src="js/tr69cfg.js"></script>
+<title>Tr069 Configuration</title></head>
+<body style="visibility:hidden" id="page_body">
+<blockquote>
+<table width="580" border="0" cellpadding="0" cellspacing="0">
+<tr>
+    <td><B id="in_hd">Tr069 Configuration</B></td>
+</tr>
+
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><table border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><input name="bt_refresh" type="button" class="button_style" id="bt_refresh" onClick="getTr069Config();" value="Refresh"></td>
+        <td id="div_loading">
+        	<table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td align="right"><img src="img/animated_loading.gif" width="32" height="32" id="burn_img"></td>
+              <td><strong id="txt_step">Loading .....</strong></td>
+            </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td id="div_table" style="visibility:hidden"><table border="1" cellpadding="0" cellspacing="0" bordercolor="#C0C0C0" style="border-collapse: collapse">
+	   <tr id="tr_onu_network_8"> 
+           <td width="200" height="27" align="right" bgcolor="#EEEEEE" id="in_user_url_value">ACS USER URL:&nbsp;</td>
+         
+            <td width ="300" height="27">&nbsp;
+            <input name="auth_value_00" type="text" class="input_style" id="td_auth_value_08" maxlength="256" size="40">
+         </td>  
+      </tr>
+
+      <tr id="tr_onu_network_9"> 
+           <td width="200" height="27" align="right" bgcolor="#EEEEEE" id="in_user_name_value">ACS USER NAME:&nbsp;</td>
+         
+            <td width ="300" height="27">&nbsp;
+            <input name="auth_value_01" type="text" class="input_style" id="td_auth_value_09" maxlength="256" size="40">
+         </td>  
+      </tr>
+     
+          <tr id="tr_onu_network_10"> 
+           <td width="200" height="27" align="right" bgcolor="#EEEEEE" id="in_password_value">ACS PASSWORD:&nbsp;</td>
+         
+            <td width ="300" height="27">&nbsp;
+            <input name="auth_value_02" type="text" class="input_style" id="td_auth_value_10" maxlength="256" size="40">
+          </td>  
+          </tr> 
+          <tr id="tr_onu_network_12"> 
+           <td width="200" height="27" align="right" bgcolor="#EEEEEE" id="in_req_conn_user_value">REQ CONN USER NAME:&nbsp;</td>
+         
+            <td width ="300" height="27">&nbsp;
+            <input name="auth_value_03" type="text" class="input_style" id="td_auth_value_12" maxlength="256" size="40">
+         </td>  
+      </tr>
+          <tr id="tr_onu_network_13"> 
+           <td width="200" height="27" align="right" bgcolor="#EEEEEE" id="in_req_conn_password_value">REQ CONN PASSWORD:&nbsp;</td>
+         
+            <td width ="300" height="27">&nbsp;
+            <input name="auth_value_04" type="text" class="input_style" id="td_auth_value_13" maxlength="256" size="40">
+          </td>  
+      </tr>
+      <tr> 
+           <td width="200" height="27" align="right" bgcolor="#EEEEEE" id="in_vlan_id">VLAN ID:&nbsp;</td>
+           <td width ="300" height="27">&nbsp;
+             <input name="vlan_id" type="text" class="input_style" id="vlan_id" maxlength="256" size="40">
+           </td>
+      </tr>
+      <tr> 
+           <td width="200" height="27" align="right" bgcolor="#EEEEEE" id="in_default_sn">Default SN:&nbsp;</td>
+           <td width ="300" height="27">&nbsp;<span name="default_sn" id="default_sn"></span></td>
+           </td>  
+      </tr>
+      <tr> 
+           <td width="200" height="27" align="right" bgcolor="#EEEEEE" id="in_req_url">REQ URL:&nbsp;</td>
+           <td width ="300" height="27">&nbsp;<span name="td_auth_value_14" id="td_auth_value_14"></span></td>  
+      </tr>
+      
+      </tr>
+      <tr> 
+           <td width="200" height="27" align="right" bgcolor="#EEEEEE" id="in_req_conn_status">CONN STATUS:&nbsp;</td>
+           <td width ="300" height="27">&nbsp;<span name="td_auth_value_15" id="td_auth_value_15"></span></td>
+      </tr> 
+      
+	<tr>
+        <td height="28" align="right" bgcolor="#EEEEEE">&nbsp;</td>
+        <td height="28" colspan="2">
+          <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>&nbsp;
+                <input name="bt_apply" type="button" class="button_style" id="bt_apply" onClick="SetTr069Config();" value="Apply"></td>
+              <td id="div_apply_loading">&nbsp;</td>
+            </tr>
+          </table></td>
+        </tr>
+    </table></td>
+  </tr>
+
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td id="div_table1" style="visibility:hidden"><table border="1" cellpadding="0" cellspacing="0" bordercolor="#C0C0C0" style="border-collapse: collapse">
+      <tr> 
+           <td width="200" height="27" align="right" bgcolor="#EEEEEE" id="in_wan_ip">WAN IP:&nbsp;</td>
+           <td width ="300" height="27">&nbsp;
+           	<input name="wan_ip" type="text" class="input_style" id="wan_ip" size="40"></td>   
+      </tr>
+      <tr> 
+           <td width="200" height="27" align="right" bgcolor="#EEEEEE" id="in_mask_ip">MASK IP:&nbsp;</td>
+           <td width ="300" height="27">&nbsp;
+           	<input name="mask_ip" type="text" class="input_style" id="mask_ip" size="40"></td>
+      </tr> 
+      <tr> 
+           <td width="200" height="27" align="right" bgcolor="#EEEEEE" id="in_dns_ip">DNS IP:&nbsp;</td>
+           <td width ="300" height="27">&nbsp;
+           	<input name="dns_ip" type="text" class="input_style" id="dns_ip" size="40"></td>
+      </tr>
+      <tr> 
+           <td width="200" height="27" align="right" bgcolor="#EEEEEE" id="in_router_ip">ROUTER IP:&nbsp;</td>
+           <td width ="300" height="27">&nbsp;
+           	<input name="router_ip" type="text" class="input_style" id="router_ip" size="40"></td>
+      </tr>
+	  <tr>
+        <td width="200" height="27" align="right" bgcolor="#EEEEEE" id="in_ip_mode">MODE TYPE:&nbsp;</td>
+        <td>&nbsp;
+          	<select name="ip_mode" id="ip_mode">
+            	<option value="0">DHCP</option>
+            	<option value="1">STATIC</option>
+            </select>
+        </td>
+      </tr>
+      <tr>
+        <td height="28" align="right" bgcolor="#EEEEEE">&nbsp;</td>
+        <td height="28" colspan="2">
+          <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>&nbsp;
+                <input name="bt_apply1" type="button" class="button_style" id="bt_apply1" value="Apply"></td>
+              <td id="div_apply_loading1">&nbsp;</td>
+            </tr>
+          </table></td>
+        </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td id="div_table2" style="visibility:hidden"><table border="1" cellpadding="0" cellspacing="0" bordercolor="#C0C0C0" style="border-collapse: collapse">
+	<tr>
+        <td width="200" height="28" align="right" bgcolor="#EEEEEE" id="in_reverse_auth">REVERSE AUTH:&nbsp;</td>
+        <td width="300" height="28" colspan="2">
+          <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>&nbsp;
+                <input name="bt_reverse_auth" type="button" class="button_style" id="bt_reverse_auth" onClick="SetReverseAuth();" value="Report"></td>
+              <td id="div_apply_loading2">&nbsp;</td>
+            </tr>
+          </table>
+        </td>
+    </tr>
+   </table></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<br>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,15 @@
+Project Name        : TW2362H-CDEL
+Project Version     : GTO100I_SFP_ZYXEL V1.0.1
+Service Pack        : TW2362H-CDEL
+Build User          : zhuxiaolong, patch rechner
+GIT Revision        : 339ca831, patch bd9f9158
+Build Time          : 2025-04-09 17:03:14, patch 2026-05-27 14:54:21
+#------------------------------------------
+Client Version      : V1.00(ABVJ.1)b1j
+Client Device Type  : GTO100I_SFP_ZYXEL
+Client ONU Version  : V1.00(ABVJ.1)b1j
+#------------------------------------------
+VENDOR ID           : ZYXEL
+Factory Version     : TW-R01B010D339ca831-CN
+ONU MODEL           : GTO100I_SFP_ZYXEL
+Hardware Version    : PMG3000-D20B

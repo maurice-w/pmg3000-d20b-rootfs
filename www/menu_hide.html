@@ -1,0 +1,55 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<link href="css/menu.css" rel="stylesheet" type="text/css">
+<script language="javascript" type="text/javascript" src="js/common_util.js"></script>
+<script language="javascript" type="text/javascript">
+window.onload = function() {
+	top.g_cur_left_url = window.location.href;
+	chgLanguage();
+	$("page_body").style.visibility = "visible";
+    if (-1 == top.g_cur_left_url.indexOf("?direct=ok"))
+    {
+        top.g_cur_main_url = "hide_loid_mac.html";
+    }
+	top.mainFrame.location.href = top.g_cur_main_url;
+}
+
+function chgLanguage()
+{
+	try {chg_language(top.g_lang.h_hide_menu);} catch(e){}
+}
+</script>
+</head>
+<body style="visibility:hidden" id="page_body">
+<b class="b1"></b>
+<b class="b2"></b>
+<b class="b3"></b>
+<b class="b4"></b>
+<div class="contentb">
+<div align="center">
+<table border="0" cellpadding="0" cellspacing="0">
+<!--
+ <tr>
+   <td height="20" align="left"><a href="hide_network_mode.html" target="mainFrame" class="menulink" id="in_network_mode">Network Mode</a></td>
+</tr>
+-->
+<tr>
+  <td height="20" align="left"><a href="hide_loid_mac.html" target="mainFrame" class="menulink" id="in_loid_mac">LOID &amp; MAC </a></td>
+</tr>
+<!--
+<tr>
+  <td height="20" align="left"><a href="verupdate.html" target="mainFrame" class="menulink" id="in_batch_upgrade">Batch Upgrade</a></td>
+</tr>
+-->
+</table>
+</div>
+</div>
+<b class="b4"></b>
+<b class="b3"></b>
+<b class="b2"></b>
+<b class="b1"></b>
+</body>
+</html>
+

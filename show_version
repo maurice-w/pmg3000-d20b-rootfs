@@ -1,0 +1,11 @@
+Project Name:              TW2362H-CDEL
+Client Product Name:       GTO100I_SFP_ZYXEL
+Internal Product Name:     GTO100I_SFP_ZYXEL
+Hardware Version:          PMG3000-D20B
+Boot Version:              V1.0.0
+Client Software Version:   V1.0.0
+Internal Software Version: V1.0.0
+Build User:                zhuxiaolong
+Build Time:                2025-04-09 17:03:14
+Build Method:              export ONU=gto100i_sfp_zyxel && cd ../drv && make install && cd .. && make rootfs && make install
+GIT Info:                  Tw2362H-CDEl_lantiq98035_Zyxe1_20220629:339ca831

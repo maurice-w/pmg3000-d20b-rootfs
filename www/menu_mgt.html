@@ -1,0 +1,75 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>MENU_MGT</title>
+<link href="css/menu.css" rel="stylesheet" type="text/css">
+<script language="javascript" type="text/javascript" src="js/common_util.js"></script>
+<script language="javascript" type="text/javascript">
+window.onload = function() {
+	top.g_cur_left_url = window.location.href;
+	chgLanguage();
+	$("page_body").style.visibility = "visible";
+	//addMenuEvent("link_diag", "submenu_diag");
+    if (-1 == top.g_cur_left_url.indexOf("?direct=ok"))
+    {
+        top.g_cur_main_url = "maintenance_updatefirm.html";
+    }
+
+	top.mainFrame.location.href = top.g_cur_main_url;
+}
+
+function chgLanguage()
+{
+	try {chg_language(top.g_lang.h_mgt_menu);} catch(e){}
+}
+</script>
+</head>
+<body style="visibility:hidden" id="page_body">
+<b class="b1"></b>
+<b class="b2"></b>
+<b class="b3"></b>
+<b class="b4"></b>
+<div class="contentb">
+<div align="center">
+<table border="0" cellpadding="0" cellspacing="0">
+<!--
+ <tr>
+  <td height="20" align="left"><a href="snmp_config.html" target="mainFrame" class="menulink" id="in_snmp">SNMP</a></td>
+</tr>
+ <tr>
+  <td height="20" align="left"><a href="diagnostics_statistics.html" target="mainFrame" class="menulink" id="link_diag">Diagnostics</a></td>
+</tr>
+<tr>
+  <td align="left" id="submenu_diag"><table border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td>&nbsp;&nbsp;</td>
+      <td height="20" align="left"><a href="diagnostics_statistics.html" target="mainFrame" class="menulink" id="in_stat">Statistics</a></td>
+      </tr>
+    </table></td>
+</tr>
+-->
+<tr>
+  <td height="20" align="left"><a href="maintenance_updatefirm.html" target="mainFrame" class="menulink" id="in_update">Update Software</a></td>
+</tr>
+<!--
+<tr>
+  <td height="20" align="left"><a href="updateconfig.html" target="mainFrame" class="menulink" id="in_config">Update Configuration</a></td>
+</tr>
+-->
+<tr>
+  <td height="20" align="left"><a href="maintenance_reset.html" target="mainFrame" class="menulink" id="in_rest">Reset ONU</a></td>
+</tr>
+<tr>
+  <td height="20" align="left"><a href="omciupdate.html" target="mainFrame" class="menulink" id="in_omciupdate">OMCI UPGRADE</a></td>
+</tr>
+
+</table>
+</div>
+</div>
+<b class="b4"></b>
+<b class="b3"></b>
+<b class="b2"></b>
+<b class="b1"></b>
+</body>
+</html>
+

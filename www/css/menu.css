@@ -1,0 +1,43 @@
+.menulink {
+	font-weight: bold;
+	font-size: 9pt;
+	cursor:pointer;
+	font-family: "verdana", "sans-serif", "arial";
+	text-align: left;
+	text-decoration: none;
+	color: white
+}
+
+.menulink:hover {
+	color: white;
+	background-color: #1f8cfa
+}
+
+.menulink:active {
+	color: #1f8cfa;
+	background-color: black
+}
+
+dy {
+    background-color: #EFF3F6;
+    margin-left: 25px;
+    margin-top: 30px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+.b1, .b2, .b3, .b4{font-size:1px; overflow:hidden; display:block;}
+.b1 {height:1px; background:#6390D1; width:120;margin:0 5px;}
+.b2 {height:1px; background:#6390D1; width:124;border-right:2px solid #888; border-left:2px solid #888; margin:0 3px;}
+.b3 {height:1px; background:#6390D1; width:126;border-right:1px solid #888; border-left:1px solid #888; margin:0 2px;}
+.b4 {height:2px; background:#6390D1; width:129;border-right:1px solid #888; border-left:1px solid #888; margin:0 1px;}
+.contentb {background: #6390D1; border-right:1px solid #888; border-left:1px solid #888; width:130; height:650}
+.contentb div {margin-left: 5px;}   
+
+body {
+    background-color: #EFF3F6;
+    margin-left:      25px;
+    margin-top:       30px;
+    margin-right:     0px;
+    margin-bottom:    0px;
+}

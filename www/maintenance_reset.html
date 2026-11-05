@@ -1,0 +1,51 @@
+<html>
+<head>
+<link rel="stylesheet" href="css/stylemain.css" type="text/css">
+<link rel="stylesheet" href="css/colors.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script language="javascript" type="text/javascript" src="js/common_util.js"></script>
+<script language="javascript" type="text/javascript" src="js/maintenance_reset.js"></script>
+<title>Reset ONU</title></head>
+
+<body style="visibility:hidden" id="page_body">
+<blockquote>
+  <table width="470" border="0">
+    <tr>
+      <td><B id="in_hd">Reset ONU</B></td>
+      <td align="right" id="td_time"></td>
+    </tr>
+  </table>
+  <table width="470" height="100" border="1" cellpadding="0" cellspacing="0" bordercolor="#EAEAEA">
+    <tr>
+      <td align="center"><table width="100%" border="0">
+
+          <tr>
+            <td align="center" id="td_status"><table border="0">
+              <tr>
+                <td align="right"><img src="img/animated_loading.gif" width="32" height="32" id="burn_img"></td>
+                <td><strong id="txt_step">Loading.....</strong></td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td id="td_form" style="visibility:hidden"><table border="0">
+              <tr>
+                <td align="center"><input id="reset_type_0" name="reset_type" type="radio" value="0" checked></td>
+                <td id="in_rstonu"> Reset ONU </td>
+              </tr>
+              <tr>
+                <td align="center"><input id="reset_type_1" type="radio" name="reset_type" value="1"></td>
+                <td id="in_rstfac"> Reset to factory default setting</td>
+              </tr>
+              <tr>
+                <td colspan="2" align="left"><input name="bt_apply" type="button" class="button_style" id="bt_apply" onClick="resetONU();" value="Apply">
+                </td>
+              </tr>
+            </table></td>
+          </tr>      </table></td>
+    </tr>
+  </table>
+</blockquote>
+</body>
+</html>
+

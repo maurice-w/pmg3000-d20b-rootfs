@@ -1,0 +1,13 @@
+#!/bin/sh
+
+clear
+
+echo "#######################################################"
+echo "#                                                     #"
+echo "# Please login to CLI mode. Then You can do commands. #"
+echo "#                                                     #"
+echo "#######################################################"
+
+telnet 127.0.0.1 10000
+
+

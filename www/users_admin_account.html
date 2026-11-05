@@ -1,0 +1,92 @@
+<html>
+<head>
+<link rel="stylesheet" href="css/stylemain.css" type="text/css">
+<link rel="stylesheet" href="css/colors.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script language="javascript" type="text/javascript" src="js/common_util.js"></script>
+<script language="javascript" type="text/javascript" src="js/users_admin_account.js"></script>
+<title>Admin Account </title></head>
+<body style="visibility:hidden" id="page_body">
+<blockquote>
+  <table width="580" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td><strong id="in_hd">Admin Account </strong></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td id="in_intro">Admin account has unrestricted access to change and view configuration of your ONU. </td>
+    </tr>
+    
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td id="div_table" style="visibility:hidden"><table border="1" cellpadding="0" cellspacing="0" bordercolor="#C0C0C0" style="border-collapse: collapse">
+        <tbody id="tbody_broadcast">
+          <tr>
+            <td width="80" height="28" align="center" nowrap bgcolor="#EEEEEE" class="hd">&nbsp;<span id="in_user">username</span></td>
+            <td width="200" height="28" align="center" nowrap bgcolor="#EEEEEE" class="hd">&nbsp;<span id="in_pass">password</span>&nbsp;</td>
+            <td width="200" height="28" align="center" nowrap bgcolor="#EEEEEE" class="hd">&nbsp;<span id="in_priv">level</span>&nbsp;</td>
+          </tr>
+          <!-- TR_QINQ_LIST BEGIN-->
+          <tr onMouseOver="this.style.background='#EEEEEE';" onMouseOut="this.style.background='#FFFFFF';">
+            <td height="26" align="center" nowrap>&nbsp;USERNAME&nbsp;</td>
+            <td height="26" align="center" nowrap>&nbsp;PASSWORD&nbsp;</td>
+            <td height="26" align="center" nowrap>&nbsp;PRIVILEGE&nbsp;</td>
+          </tr>
+          <!-- TR_QINQ_LIST END-->
+        </tbody>
+      </table></td>
+    </tr>
+    
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td id="div_edit_table" style="visibility:hidden"><table border="1" cellpadding="0" cellspacing="0" bordercolor="#C0C0C0" style="border-collapse: collapse">
+        <tbody>
+          <tr>
+            <td width='150' height="27" align="right" bgcolor="#EEEEEE" id="in_td_user">User Name:</td>
+            <td height="27">&nbsp;
+              <input name='username' type="text" class="input_style" id="username" size="20" maxlength="63">
+              &nbsp;</td>
+          </tr>
+          <tr>
+            <td height="27" align="right" bgcolor="#EEEEEE" id="in_td_pass">New Password:</td>
+            <td height="27">&nbsp;
+              <input name='password' type="password" class="input_style" id="password" size="20" maxlength="63">
+              &nbsp;</td>
+          </tr>
+          <tr>
+            <td height="27" align="right" bgcolor="#EEEEEE" id="in_td_priv">&nbsp;&nbsp;Privilege:</td>
+            <td height="27">&nbsp;
+              <input name='level' type='password' class="input_style" id="level" size="20" maxlength="63">
+              &nbsp;<span> 0 ~ 64 </span></td>
+          </tr>
+
+          <tr>
+            <td height="27" align="right" bgcolor="#EEEEEE">&nbsp;</td>
+            <td height="27"><table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td>&nbsp;
+                  <input name="bt_chg" type="button" class="button_style" id="bt_chg" onClick="chgPasswd(2);" value="Change">&nbsp;
+                  <input name="bt_add" type="button" class="button_style" id="bt_add" onClick="chgPasswd(1);" value="Add">&nbsp;
+                  <input name="bt_del" type="button" class="button_style" id="bt_del" onClick="chgPasswd(0);" value="Del">&nbsp;
+                </td><td id="div_loading"><table border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td align="right"><img src="img/animated_loading.gif" width="32" height="32" id="burn_img"></td>
+                      <td><strong id="txt_step">Loading .....</strong></td>
+                    </tr>
+                </table></td>
+              </tr>
+            </table></td>
+          </tr>
+        </tbody>
+      </table></td>
+    </tr>
+  </table>
+</blockquote>
+</body>
+</html>

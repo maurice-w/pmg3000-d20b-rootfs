@@ -1,0 +1,53 @@
+<html>
+<head>
+<link rel="stylesheet" href="css/stylemain.css" type="text/css">
+<link rel="stylesheet" href="css/colors.css" type="text/css">
+<title>Upload Firmware Image</title>
+<script language="javascript" type="text/javascript" src="js/common_util.js"></script>
+<script language="javascript" type="text/javascript">
+var pre_load_img = null;
+window.onload = function() {	
+	try {chg_language(top.g_lang.h_update_if);} catch(E){}
+	$("page_body").style.visibility = "visible";
+	try {$("bt_update").disabled = true;} catch(e){alert(e);}
+	if ( LoginUser("user") != "admin") {
+		$("bt_update").disabled = true;
+		$("firmware_file").disabled = true;
+	}
+	
+	parent.getIpAddr();
+}
+
+function  chgStatus() {
+	if ($("firmware_file").value == "") {
+		$("bt_update").disabled = true;
+		return;
+	} else {
+		$("bt_update").disabled = false;
+	}
+}
+
+function upload() { 
+	if ($("firmware_file").value == "") {
+		$("bt_update").disabled = true;
+		return;
+	}
+	parent.uploadImage();
+	setTimeout("$(\"form_update\").submit()", 1000);
+}
+</script>
+</head>
+<body style="visibility:hidden" id="page_body">
+<form action='cgi/upload_image' method='post' enctype='multipart/form-data' name="form_update" id="form_update">
+  <table width="100%" border="0" cellpadding="3" cellspacing="2">
+    <tr>
+      <td id="in_filename">Firmware File Name:&nbsp;</td>
+      <td><input name="firmware_file" type="file" id="firmware_file" class="update" size="30" onChange="chgStatus();"></td>
+    </tr>
+    <tr>
+      <td colspan="2" id="up_status"><input name="bt_update" type="button" class="button_style" id="bt_update" onClick="upload();" value="Update Fireware"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+<head>
+<link rel="stylesheet" href="css/stylemain.css" type="text/css">
+<link rel="stylesheet" href="css/colors.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script language="javascript" type="text/javascript" src="js/common_util.js"></script>
+<script language="javascript" type="text/javascript" src="js/longlight_config.js"></script>
+<title>Longlight Configuration</title></head>
+<body  style="visibility:hidden" id="page_body">
+<blockquote>
+  <table width="580" border="0" cellpadding="0" cellspacing="0" bordercolor="#C0C0C0" style="border-collapse: collapse">
+    <tr>
+      <td><B id="in_hd">Longlight Configuration</B></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    
+    <tr>
+      <td><table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td><input name="bt_refresh" type="button" class="button_style" id="bt_refresh" onClick="GetLonglightInfo();" value="Refresh"></td>
+          <td id="div_loading"><table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td align="right"><img src="img/animated_loading.gif" width="32" height="32" id="burn_img"></td>
+                <td><strong id="txt_step">Loading .....</strong></td>
+              </tr>
+          </table></td>
+        </tr>
+      </table></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td><table width="409" border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse" bordercolor="#C0C0C0">
+        <tr>
+          <td width="147" height="27" align="right" bgcolor="#F0F0F0">&nbsp;&nbsp;<span id="in_longlight_01">Longlight</span>:&nbsp;</td>
+          <td height="27">&nbsp;&nbsp;<strong id="longlight_stat">Disable</strong>&nbsp;&nbsp;</td>
+          </tr>
+      </table></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td id="div_table" style="visibility:hidden" ><table width="409" border="1" cellpadding="0" cellspacing="0" bordercolor="#C0C0C0" style="border-collapse: collapse">
+        <tr>
+          <td width="147" height="27" align="right" bgcolor="#F0F0F0">&nbsp;&nbsp;<span id="in_longlight_02">Longlight</span>:&nbsp;</td>
+          <td  height="27">
+            &nbsp;
+            <select name="longlight_en" id="longlight_en">
+              <option value="0">Disable</option>
+              <option value="1">Enable</option>
+            </select>&nbsp; 
+          </td>
+        </tr>
+        <tr>
+          <td height="27" align="right" bgcolor="#F0F0F0">&nbsp;</td>
+          <td height="27" ><table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td>&nbsp;
+                    <input name="bt_apply" type="button" class="button_style" id="bt_apply" onClick="SetLonglightConfig();" value="Apply"></td>
+                <td id="div_apply_loading">&nbsp;</td>
+              </tr>
+          </table></td>
+        </tr>
+      </table></td>
+    </tr>
+  </table>
+</blockquote>
+</body>
+</html>

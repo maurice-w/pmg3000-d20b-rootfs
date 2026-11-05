@@ -1,0 +1,25 @@
+
+config interface 'lan0'
+	option ifname 'lan0'
+	option proto 'none'
+	option macaddr 'ac:9a:96:00:01:00'
+
+config interface 'lan1'
+	option ifname 'lan1'
+	option proto 'none'
+	option macaddr 'ac:9a:96:00:00:00'
+
+config interface 'lct'
+	option ipaddr '192.168.1.1'
+	option netmask '255.255.255.0'
+	option proto 'static'
+	option ifname 'lan1'
+	option gateway '192.168.1.1'
+
+config interface 'wan'
+	option ifname 'wan'
+	option proto 'static'
+	option ipaddr '0.0.0.0'
+	option netmask '255.255.255.0'
+	option macaddr 'ac:9a:96:00:02:00'
+

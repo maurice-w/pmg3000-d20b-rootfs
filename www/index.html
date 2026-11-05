@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Page-Enter" content="revealTrans(Duration=1.0,Transition=23)">
+<title>GPON</title>
+<script language="JavaScript" type="text/javascript" src="js/common_util.js"></script>
+<script language="JavaScript" type="text/javascript">
+var g_lang_info = null;
+var g_lang = null;
+var g_cur_lang = 0;
+
+var g_top = 0;
+var g_cur_left_url = "menu_system.html";
+var g_cur_main_url = "system_overview.html";
+
+var menu_url = QueryString("menu");
+var item_url = QueryString("item");
+
+if (menu_url != null && item_url != null)
+{
+    g_cur_left_url = menu_url + "?direct=ok";
+    g_cur_main_url = item_url;
+}
+
+function QueryString(item){
+    var sValue=location.search.match(new RegExp("[\?\&]"+item+"=([^\&]*)(\&?)","i"));
+    return sValue?sValue[1]:sValue;
+}
+
+function setFrame(h)
+{
+	g_top = h;
+	$("top_frameset").rows 	= h + ",3,*,40";
+	$("main_frameset").rows = "50,*";
+	$("main_frameset").cols = "180,*";
+}
+
+function getLanuage()
+{
+	try
+	{
+		var parm = "";
+        var xmlhttp = new XMLHttp();
+        xmlhttp.sendRequest("js/language.js" + parm, "", getLanuageResult);
+	}
+	catch (E)
+	{
+		alert("get language failed\n");
+	}
+}
+
+function getLanuageResult(s, web_server_status)
+{
+    g_lang_info = evalJSON(s);
+    if (g_lang_info == null)
+    {
+        alert("lang");
+    }
+
+	try
+	{
+		var parm = "";
+        parm += "?rand=" + Math.random();
+        var xmlhttp = new XMLHttp();
+        xmlhttp.sendRequest("cgi/get_language" + parm, "", getLanuageSetResult);
+	}
+	catch (E)
+	{
+		alert("get language failed\n");
+	}
+}
+
+function getLanuageSetResult(s, web_server_status)
+{		
+    var lang_info = evalJSON(s);
+    if (lang_info == null)
+    {
+        alert("lang_info");
+    }
+    web_lang = lang_info.language;
+
+    try
+    {
+        // var web_lang = parseInt(getWebLanguage("user"));
+        var isZH_CN = false;
+        try
+        {
+            isZH_CN = navigator.browserLanguage.toLowerCase() == "zh-cn";
+        }
+        catch(e)
+        {
+            try
+            {
+                isZH_CN = navigator.language.toLowerCase() == "zh-cn";
+            }catch(oc){}
+        }
+
+        if (web_lang > 0 && web_lang <= g_lang_info.type.length)
+        {
+            g_cur_lang = web_lang;
+            g_lang = g_lang_info.info[web_lang - 1];
+        }
+        else
+        {
+            g_cur_lang = 0;
+            g_lang = g_lang_info.info[isZH_CN ? 1 : 0];
+        }
+    }
+    catch(E)
+    {
+        alert("getLanguageResults failed");
+    }
+    $("topFrame").src = "bannar_2.html";
+    $("logoFrame").src = "logoframe.html";
+    $("logo_actFrame").src = "logo_actframe.html";
+    $("bottomFrame").src = "bottomframe.html";
+}
+
+function chgLanguage(id)
+{
+    try
+    {
+        g_lang = g_lang_info.info[id];
+        g_cur_lang = id;
+        leftFrame.chgLanguage();
+        $("mainFrame").src = g_cur_main_url;
+    }
+    catch(E) { alert(E); }
+}
+
+function loadMenu(str_url)
+{
+    $("leftFrame").src = str_url;
+}
+
+</script>
+</head>
+
+<frameset frameborder="no" border="0" framespacing="0" id="top_frameset" rows="55,3,*,40">
+    <frame name="logoFrame" id="logoFrame" scrolling="no" noresize="noresize">
+    <frame scrolling="no" noresize="noresize">  	
+    <frameset frameborder="no" border="0" framespacing="0" id="main_frameset" rows="50,*" cols="180,*">
+        <frame name="logo_actFrame" id="logo_actFrame" scrolling="no" noresize="noresize">
+        <frame name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame">
+        <frame name="leftFrame" scrolling="No" noresize="noresize" id="leftFrame" title="leftFrame">
+        <frame src="loading.html" name="mainFrame" id="mainFrame" title="mainFrame">
+    </frameset>
+    <frame name="bottomFrame" scrolling="No" noresize="noresize" id="bottomFrame" title="bottomFrame">
+</frameset>
+
+<noframes>
+    <body>
+    </body>
+</noframes>
+</html>

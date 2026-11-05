@@ -1,0 +1,137 @@
+<html>
+<head>
+<link rel="stylesheet" href="css/stylemain.css" type="text/css">
+<link rel="stylesheet" href="css/colors.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script language="javascript" type="text/javascript" src="js/common_util.js"></script>
+<script language="javascript" type="text/javascript" src="js/verupdate_config.js"></script>
+<title>VerUpdate Configuration</title></head>
+<body style="visibility:hidden" id="page_body">
+<blockquote>
+  <table width="580" border="0" cellpadding="0" cellspacing="0" bordercolor="#C0C0C0" style="border-collapse: collapse">
+    <tr>
+      <td><B id="in_hd">VerUpdate Configuration</B></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    
+    <tr>
+      <td><table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td><input name="bt_refresh" type="button" class="button_style" id="bt_refresh" onClick="GetVerUpdateInfo();" value="Refresh"></td>
+          <td id="div_loading"><table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td align="right"><img src="img/animated_loading.gif" width="32" height="32" id="burn_img"></td>
+                <td><strong id="txt_step">Loading .....</strong></td>
+              </tr>
+          </table></td>
+        </tr>
+      </table></td>
+    </tr>
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    </tr>
+    <tr>
+      <td><table width="409" border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse" bordercolor="#C0C0C0">
+        <tr>
+          <td width="150" height="27" align="right" bgcolor="#F0F0F0">&nbsp;&nbsp;<span id="in_verupdate_txt_01">Update State</span>:&nbsp;</td>
+          <td height="27">&nbsp;&nbsp;<strong id="update_stat">Enable</strong>&nbsp;&nbsp;</td>
+          </tr>
+        <tr>
+          <td width="150" height="27" align="right" bgcolor="#F0F0F0">&nbsp;&nbsp;<span id="in_verupdate_txt_03">Auto Update State</span>:&nbsp;</td>
+          <td height="27">&nbsp;&nbsp;<strong id="auto_stat">Disable</strong>&nbsp;&nbsp;</td>
+          </tr>
+        <tr>
+          <td width="150" height="27" align="right" bgcolor="#F0F0F0" id="in_cur_ip">UDP Multicast Address: </td>
+          <td height="28" id="cur_ip">&nbsp;</td>
+        </tr>
+        <tr>
+          <td width="150" height="27" align="right" bgcolor="#F0F0F0" id="in_cur_mask">Policy Server IP:</td>
+          <td height="28" id="cur_mask">&nbsp;</td>
+        </tr>
+        <tr>
+          <td width="150" height="27" align="right" bordercolor="#C0C0C0" bgcolor="#F0F0F0">&nbsp;&nbsp;<span id="in_txt_port_03">Policy Server Port</span>:&nbsp;</td>
+          <td height="27" bordercolor="#C0C0C0">&nbsp;&nbsp;<b><span id="td_policy_port"></span></b></td>
+          </tr>
+        <tr>
+          <td width="150" height="27" align="right" bordercolor="#C0C0C0" bgcolor="#F0F0F0">&nbsp;&nbsp;<span id="in_txt_retry_time_01">Retry Interval</span>:&nbsp;</td>
+          <td height="27" bordercolor="#C0C0C0">&nbsp;&nbsp;<b><span id="td_retry_time"></span>&nbsp;<span id="in_mc_fmt01">minites</span></b></td>
+          </tr>
+        <tr>
+          <td width="150" height="27" align="right" bordercolor="#C0C0C0" bgcolor="#F0F0F0">&nbsp;&nbsp;<span id="in_txt_port_07">Vlan ID</span>:&nbsp;</td>
+          <td height="27" bordercolor="#C0C0C0">&nbsp;&nbsp;<b><span id="td_vlan_id"></span></b></td>
+          </tr>
+      </table>      </td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td id="div_table" style="visibility:hidden"><table width="409" border="1" cellpadding="0" cellspacing="0" bordercolor="#C0C0C0" style="border-collapse: collapse">
+        <tr>
+          <td width="150" height="27" align="right" bgcolor="#F0F0F0">&nbsp;&nbsp;<span id="in_verupdate_txt_02">Update State</span>:&nbsp;</td>
+          <td height="27">
+            &nbsp;
+            <select name="update_en" id="update_en">            	
+              <option value="0">Disable</option>  
+              <option value="1">Enable</option>            
+            </select>&nbsp;            
+          </td>
+        </tr>
+        <tr>
+          <td width="150" height="27" align="right" bgcolor="#F0F0F0">&nbsp;&nbsp;<span id="in_verupdate_txt_04">Auto Update State</span>:&nbsp;</td>
+          <td  height="27">
+            &nbsp;
+            <select name="auto_en" id="auto_en">            	
+              <option value="0">Disable</option> 
+              <option value="1">Enable</option>             
+            </select>&nbsp;            
+          </td>
+        </tr>
+        <tr>
+          <td width="150" height="28" align="right" bgcolor="#EEEEEE" id="in_new_ip">UDP Multicast Address:</td>
+          <td height="28">&nbsp;
+            <input name="ip" type="text" class="input_style" id="ip" maxlength="15">
+            &nbsp;</td>
+        </tr>
+        <tr>
+          <td width="150" height="28" align="right" bgcolor="#EEEEEE" id="in_new_mask">Policy Server IP:</td>
+          <td height="28">&nbsp;
+            <input name="mask" type="text" class="input_style" id="mask" maxlength="15">
+            &nbsp;</td>
+        </tr>
+        <tr>
+          <td width="150" height="27" align="right" bgcolor="#F0F0F0">&nbsp;&nbsp;<span id="in_txt_port_04">Policy Server Port</span>:&nbsp;</td>
+          <td height="27">&nbsp;
+              <input name="policy_port" type="text" class="input_style" id="policy_port" size="10" maxlength="7">
+            &nbsp;</td>
+        </tr>
+        <tr>
+          <td width="150" height="27" align="right" bgcolor="#F0F0F0">&nbsp;&nbsp;<span id="in_txt_retry_time_02">Retry Interval</span>:&nbsp;</td>
+          <td height="27">&nbsp;
+              <input name="retry_time" type="text" class="input_style" id="retry_time" size="10" maxlength="7">
+            &nbsp;<span id="in_mc_fmt02">minites</span></td>
+        </tr>
+        <tr>
+          <td width="150" height="27" align="right" bgcolor="#F0F0F0">&nbsp;&nbsp;<span id="in_txt_port_08">Vlan ID</span>:&nbsp;</td>
+          <td height="27">&nbsp;
+              <input name="vlan_idnum" type="text" class="input_style" id="vlan_idnum" size="10" maxlength="7">
+            &nbsp;</td>
+        </tr>
+        <tr>
+          <td width="150" height="27" align="right" bgcolor="#F0F0F0">&nbsp;</td>
+          <td height="27" ><table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td>&nbsp;
+                    <input name="bt_apply" type="button" class="button_style" id="bt_apply" onClick="SetVerUpdateConfig();" value="Apply"></td>
+                <td id="div_apply_loading">&nbsp;</td>
+              </tr>
+          </table></td>
+        </tr>
+      </table></td>
+    </tr>
+  </table>
+</blockquote>
+</body>
+</html>

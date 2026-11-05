@@ -1,0 +1,8 @@
+#!/bin/sh
+
+EGIS_FILE_NAME=egis_save_file.tar.gz
+
+cd /tmp
+rm -fr ${EGIS_FILE_NAME}
+tar czf ${EGIS_FILE_NAME} egis
+egistool -s ${EGIS_FILE_NAME}

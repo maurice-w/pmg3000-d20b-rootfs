@@ -1,0 +1,28 @@
+Identifier                 : 0x03
+Ext.Identifier             : 0x04
+Connector                  : 0x01
+Transceiver                : 0x0000000200000000
+Encoding                   : 0x03
+BR, Nominal                : 0x0c
+Rate Identifier            : 0x00
+Length(SMF,km)             : 0x14
+Length (SMF)               : 0xc8
+Length (50um)              : 0x00
+Length (62.5um)            : 0x00
+Length (cable)             : 0x00
+Length (OM3)               : 0x00
+Vendor name                : 0x5A5958454C0000000000000000000000
+Transceiver1               : 0x00
+Vendor OUI                 : 0x000000
+Vendor PN                  : 0x504D47333030302D4432304200000000
+Vendor rev                 : 0x56312E30
+Wavelength                 : 0x051e
+Options                    : 0x001a
+BR, max                    : 0x00
+BR, min                    : 0x00
+Vendor SN                  : 0x54575348303030303030303100000000
+Date code                  : 0x3135303532352020
+Diagnostic Monitoring Type : 0x68
+Enhanced Options           : 0xf0
+SFF-8472 Compliance        : 0x01
+Customer Definition field  : 0x0000000000000000000000000000000000000000000000000000000000000000

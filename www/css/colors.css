@@ -1,0 +1,35 @@
+td.hd {
+	color:black;
+	background-color:#efefef
+}
+input {
+	color:black
+}
+.logobody {
+	border-bottom:black 2px solid
+}
+.footerbody {
+	border-top: black 2px solid;
+	background-color: white
+}
+.footertd {
+	background-color: white
+}
+.mainmenubody {
+	border-right: black 2px solid;
+	background-color: black
+}
+.menulink {
+	color: white
+}
+.menulink:hover {
+	color: white;
+	background-color: #1f8cfa
+}
+.menulink:active {
+	color: #1f8cfa;
+	background-color: black
+}
+.menucell {
+	background-color: black
+}

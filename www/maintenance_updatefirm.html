@@ -1,0 +1,62 @@
+<html>
+<head>
+<link rel="stylesheet" href="css/stylemain.css" type="text/css">
+<link rel="stylesheet" href="css/colors.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script language="javascript" type="text/javascript" src="js/common_util.js"></script>
+<script language="javascript" type="text/javascript" src="js/maintenance_updatefirm.js"></script>
+<title>Update Firmware</title></head>
+<body style="visibility:hidden" id="page_body">
+<blockquote>
+  <table width="580" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td><b id="in_hd">Update Firmware</b></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>
+		<ol id="td_intro">
+	  	  <li>Obtain an updated firmware image file from your ISP.</li>
+		  <li>Enter the path to the image file location in the box below or click &quot;Browse&quot; to locate the image file.</li>
+          <li>Click &quot;Update Firmware&quot; once to upload the new image file.</li>
+		</ol> 	  
+	  </td>
+    </tr>
+    <tr>
+      <td id="in_note">
+		<b>NOTE:&nbsp;</b>The update process takes about 5 minutes to complete, and your ONU will reboot.</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><table width="470" border="0">
+        <tr>
+          <td><strong id="step_title">Loading</strong></td>
+          <td align="right" id="td_time"></td>
+        </tr>
+      </table>
+        <table width="470" height="100" border="1" cellpadding="0" cellspacing="0" bordercolor="#EAEAEA">
+          <tr>
+            <td align="center"><table width="100%" border="0">
+                <tr>
+                  <td align="center" id="td_upload"><iframe id="upload_iframe" src="maintenance_updatefire_iframe.html" frameborder="0" width="450" height="0" scrolling="no"></iframe></td>
+                </tr>
+                <tr>
+                  <td align="center" id="td_step"><table border="0">
+                      <tr>
+                        <td align="right"><img src="img/animated_loading.gif" width="32" height="32" id="burn_img"></td>
+                        <td><strong id="txt_step">Loading.....</strong></td>
+                      </tr>
+                  </table></td>
+                </tr>
+            </table></td>
+          </tr>
+        </table></td>
+    </tr>
+  </table>
+</blockquote>
+</body>
+</html>
